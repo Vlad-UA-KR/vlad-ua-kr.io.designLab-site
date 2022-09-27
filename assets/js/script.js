@@ -7,8 +7,12 @@ $(function () {
 			$('body').toggleClass('lock');
 			return
 		};
-		console.log('da');
-		$('.header__btn,.header__body').removeClass('active');
-		$('body').removeClass('lock');
+
+		if (!($(e.target.closest('div')).hasClass('header__body')) ||
+			$(e.target.closest('a')).hasClass('header__link')) {
+			$('.header__btn,.header__body').removeClass('active');
+			$('body').removeClass('lock');
+			return
+		};
 	})
 });
